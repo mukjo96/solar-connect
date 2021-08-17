@@ -1,45 +1,45 @@
-function partition(arr, left, right, pivotIndex, isDescending) {
+function partition(array, left, right, pivotIndex, isDescending) {
     let swap;
-    let pivot = arr[pivotIndex];
+    let pivot = array[pivotIndex];
     while (left <= right) {
         if (isDescending) {
-            while (arr[left] > pivot) left++;
-            while (arr[right] < pivot) right--;
+            while (array[left] > pivot) left++;
+            while (array[right] < pivot) right--;
         } else {
-            while (arr[left] < pivot) left++;
-            while (arr[right] > pivot) right--;
+            while (array[left] < pivot) left++;
+            while (array[right] > pivot) right--;
         }
         if (left <= right) {
-            swap = arr[left];
-            arr[left] = arr[right];
-            arr[right] = swap;
+            swap = array[left];
+            array[left] = array[right];
+            array[right] = swap;
             left++;
             right--;
         }
     }
-    swap = arr[left];
-    arr[left] = arr[pivotIndex];
-    arr[pivotIndex] = swap;
+    swap = array[left];
+    array[left] = array[pivotIndex];
+    array[pivotIndex] = swap;
     return left;
 }
 
-function recursionSort(arr, left, right, isDescending) {
+function recursionSort(array, left, right, isDescending) {
     let pivotIndex = right;
 
-    pivotIndex = partition(arr, left, right - 1, pivotIndex, isDescending);
+    pivotIndex = partition(array, left, right - 1, pivotIndex, isDescending);
 
     if (left < pivotIndex - 1) {
-        recursionSort(arr, left, pivotIndex - 1, isDescending);
+        recursionSort(array, left, pivotIndex - 1, isDescending);
     }
     if (pivotIndex + 1 < right) {
-        recursionSort(arr, pivotIndex + 1, right, isDescending);
+        recursionSort(array, pivotIndex + 1, right, isDescending);
     }
-    return arr;
+    return array;
 }
 
-export function numberSort(arr, isDescending = false) {
+export default function numberSort(array, isDescending = false) {
     const left = 0;
-    const right = arr.length - 1;
+    const right = array.length - 1;
 
-    return recursionSort(arr, left, right, isDescending);
+    return recursionSort(array, left, right, isDescending);
 }

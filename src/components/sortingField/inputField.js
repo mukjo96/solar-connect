@@ -63,11 +63,12 @@ const StyledForm = styled.form`
     text-align: center;
 
     input {
-        margin-top: 3em;
+        margin-top: 1.5rem;
     }
 `;
 
 const ErrorMessage = styled.p`
     color: red;
-    font-weight: bold;
+    font-weight: 600;
+    text-align: start;
 `;

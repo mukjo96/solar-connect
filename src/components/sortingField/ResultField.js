@@ -1,26 +1,28 @@
+import Loading from "common/loading";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { numberSort } from "utils/sortNumber";
+import numberSort from "utils/sortNumber";
 
 const ResultField = ({ value }) => {
     const [resultValue, setResultValue] = useState({
         ascendingValue: "",
         descendingValue: "",
     });
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         setResultValue({
             ascendingValue: numberSort(value).join(", "),
             descendingValue: "",
         });
-        setTimeout(
-            () =>
-                setResultValue((prev) => ({
-                    ...prev,
-                    descendingValue: numberSort(value, true).join(", "),
-                })),
-            3000
-        );
+        setIsLoading(true);
+        setTimeout(() => {
+            setResultValue((prev) => ({
+                ...prev,
+                descendingValue: numberSort(value, true).join(", "),
+            }));
+            setIsLoading(false);
+        }, 3000);
     }, [value]);
 
     return (
@@ -34,7 +36,11 @@ const ResultField = ({ value }) => {
             <Block>
                 <Title>내림차순</Title>
                 <ResultValue>
-                    <ResultText>{resultValue.descendingValue}</ResultText>
+                    {isLoading ? (
+                        <Loading />
+                    ) : (
+                        <ResultText>{resultValue.descendingValue}</ResultText>
+                    )}
                 </ResultValue>
             </Block>
         </>

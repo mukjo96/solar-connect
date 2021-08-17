@@ -6,7 +6,7 @@
 
 ## 시작
 
-`npm start`
+`npm run start`
 
 ## 기능 구현
 

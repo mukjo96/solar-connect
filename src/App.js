@@ -2,6 +2,7 @@ import Timer from "components/timer/Timer";
 import React from "react";
 import styled from "styled-components";
 import SortingField from "components/sortingField";
+import Loading from "common/loading";
 
 const App = () => {
     return (
@@ -18,12 +19,13 @@ export default App;
 
 const Container = styled.div`
     margin: 0 auto;
-    padding: 5%;
+    padding: 2em;
     max-width: 768px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    min-height: 90vh;
+    min-height: 100vh;
+    gap: 1.5rem 0;
 `;
 
 const Title = styled.h1`

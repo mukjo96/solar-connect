@@ -20,5 +20,5 @@ export default SortingField;
 const Container = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 3rem 0;
+    gap: 1.5rem 0;
 `;
