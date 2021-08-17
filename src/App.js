@@ -7,6 +7,7 @@ const App = () => {
     return (
         <Container>
             <Timer leng="ko-KR" />
+            <Title>Sorting Machine</Title>
             <SortingField />
             <Timer leng="en-US" />
         </Container>
@@ -19,4 +20,14 @@ const Container = styled.div`
     margin: 0 auto;
     padding: 5%;
     max-width: 768px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    min-height: 90vh;
+`;
+
+const Title = styled.h1`
+    font-size: 3em;
+    font-weight: bold;
+    text-align: center;
 `;

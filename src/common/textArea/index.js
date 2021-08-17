@@ -24,7 +24,7 @@ const StyledTextArea = styled.textarea`
     padding: 10px;
     box-sizing: border-box;
     border: ${(props) =>
-        props.isValidate ? "solid 2px #1e90ff" : "solid 2px red"};
+        props.isValidate ? "solid 2px #156AFF" : "solid 2px red"};
     border-radius: 5px;
     font-size: 16px;
     font-family: inherit;

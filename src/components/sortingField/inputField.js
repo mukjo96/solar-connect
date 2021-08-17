@@ -3,9 +3,9 @@ import TextArea from "common/textArea";
 import React, { useRef, useState } from "react";
 import styled from "styled-components";
 
-const InputField = ({ setState, title }) => {
+const InputField = ({ setState }) => {
     const [inputValue, setInputValue] = useState("");
-    const [isValidate, setIsValidate] = useState(false);
+    const [isValidate, setIsValidate] = useState(true);
     const [error, setError] = useState("");
     const textRef = useRef();
 
@@ -24,7 +24,7 @@ const InputField = ({ setState, title }) => {
             return true;
         }
         setIsValidate(false);
-        setError("공백없이 숫자와 콤마 입력해주세요.");
+        setError("공백없이 숫자만 입력해주세요.");
         return false;
     };
 
@@ -41,26 +41,31 @@ const InputField = ({ setState, title }) => {
     };
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    <TextArea
-                        value={inputValue}
-                        onChange={handleChange}
-                        placeholder="숫자를 입력하세요"
-                        isValidate={isValidate}
-                        onBlur={checkValidation}
-                        ref={textRef}
-                    />
-                    {error && <ErrorMessage>{error}</ErrorMessage>}
-                </label>
-                <SubmitButton value="시작" />
-            </form>
-        </div>
+        <StyledForm onSubmit={handleSubmit}>
+            <TextArea
+                value={inputValue}
+                onChange={handleChange}
+                placeholder="숫자를 입력하세요 (예> 1,2,3,4)"
+                isValidate={isValidate}
+                onBlur={checkValidation}
+                ref={textRef}
+            />
+            {error && <ErrorMessage>{error}</ErrorMessage>}
+
+            <SubmitButton value="시작" />
+        </StyledForm>
     );
 };
 
 export default InputField;
+
+const StyledForm = styled.form`
+    text-align: center;
+
+    input {
+        margin-top: 3em;
+    }
+`;
 
 const ErrorMessage = styled.p`
     color: red;

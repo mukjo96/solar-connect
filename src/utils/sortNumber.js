@@ -43,11 +43,3 @@ export function numberSort(arr, isDescending = false) {
 
     return recursionSort(arr, left, right, isDescending);
 }
-
-// 처음 중간번호를 정한다.
-// 중간번호 기준으로 큰 번호는 오른쪽으로 작은 번호는 왼쪽으로 정렬시킨다.
-// 하위 배열에 대해 재귀로 호출한다.
-
-/*
-  
-*/
