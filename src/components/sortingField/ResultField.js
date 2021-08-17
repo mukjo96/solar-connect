@@ -1,31 +1,66 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { numberSort } from "utils/sortNumber";
 
 const ResultField = ({ value }) => {
-    const ascendingValue = numberSort(value).join(",");
-    const descendingValue = numberSort(value, true).join(",");
+    const [resultValue, setResultValue] = useState({
+        ascendingValue: "",
+        descendingValue: "",
+    });
+
+    useEffect(() => {
+        setResultValue({
+            ascendingValue: numberSort(value).join(", "),
+            descendingValue: "",
+        });
+        setTimeout(
+            () =>
+                setResultValue((prev) => ({
+                    ...prev,
+                    descendingValue: numberSort(value, true).join(", "),
+                })),
+            3000
+        );
+    }, [value]);
+
     return (
         <>
-            <Container>
-                <ResultText>{ascendingValue}</ResultText>
-            </Container>
-
-            <Container>
-                <ResultText>{descendingValue}</ResultText>
-            </Container>
+            <Block>
+                <Title>오름차순</Title>
+                <ResultValue>
+                    <ResultText>{resultValue.ascendingValue}</ResultText>
+                </ResultValue>
+            </Block>
+            <Block>
+                <Title>내림차순</Title>
+                <ResultValue>
+                    <ResultText>{resultValue.descendingValue}</ResultText>
+                </ResultValue>
+            </Block>
         </>
     );
 };
 
 export default ResultField;
 
-const Container = styled.div`
-    border: 2px solid #1d90ff;
+const Block = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem 0;
+`;
+
+const Title = styled.h3`
+    font-size: 1em;
+    font-weight: 600;
+`;
+
+const ResultValue = styled.div`
+    border: 2px solid #156aff;
     border-radius: 5px;
     padding: 3% 5%;
 `;
 
 const ResultText = styled.div`
     font-weight: bold;
+    overflow-wrap: break-word;
 `;
