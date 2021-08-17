@@ -5,7 +5,7 @@ import InputField from "./inputField";
 import ResultField from "./ResultField";
 
 const SortingField = () => {
-    const [inputNumberList, setInputNumberList] = useState([]);
+    const [inputNumberList, setInputNumberList] = useState();
 
     return (
         <Container>

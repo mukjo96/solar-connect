@@ -11,18 +11,20 @@ const ResultField = ({ value }) => {
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
-        setResultValue({
-            ascendingValue: numberSort(value).join(", "),
-            descendingValue: "",
-        });
-        setIsLoading(true);
-        setTimeout(() => {
-            setResultValue((prev) => ({
-                ...prev,
-                descendingValue: numberSort(value, true).join(", "),
-            }));
-            setIsLoading(false);
-        }, 3000);
+        if (value) {
+            setResultValue({
+                ascendingValue: numberSort(value).join(", "),
+                descendingValue: "",
+            });
+            setIsLoading(true);
+            setTimeout(() => {
+                setResultValue((prev) => ({
+                    ...prev,
+                    descendingValue: numberSort(value, true).join(", "),
+                }));
+                setIsLoading(false);
+            }, 3000);
+        }
     }, [value]);
 
     return (

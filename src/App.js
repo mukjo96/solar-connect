@@ -2,7 +2,6 @@ import Timer from "components/timer/Timer";
 import React from "react";
 import styled from "styled-components";
 import SortingField from "components/sortingField";
-import Loading from "common/loading";
 
 const App = () => {
     return (
