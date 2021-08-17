@@ -11,7 +11,7 @@ const StyledInput = styled.input`
     width: 100%;
     height: 40px;
     margin: auto;
-    color: #fff;
+    color: white;
     background: rgb(21, 106, 255);
     font-size: 16px;
     border: none;

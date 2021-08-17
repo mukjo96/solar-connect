@@ -32,6 +32,8 @@
 
 ## 배포 링크
 
+https://solarconnect-sorting-machine.netlify.app/
+
 ## 참고
 
 **퀵 정렬:** https://www.zerocho.com/category/Algorithm/post/57f72d415141fc5fe4f4ca8b
