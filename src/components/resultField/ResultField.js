@@ -4,9 +4,15 @@ import styled from "styled-components";
 const ResultField = ({ value }) => {
     const newValue = value ? value.join(",") : "";
     return (
-        <Container>
-            <ResultText>{newValue}</ResultText>
-        </Container>
+        <>
+            <Container>
+                <ResultText>{newValue}</ResultText>
+            </Container>
+
+            <Container>
+                <ResultText>{newValue}</ResultText>
+            </Container>
+        </>
     );
 };
 

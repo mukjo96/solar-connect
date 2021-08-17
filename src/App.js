@@ -11,13 +11,8 @@ const App = () => {
     return (
         <Container>
             <Timer leng="ko-KR" />
-            <InputField
-                value={inputNumberList}
-                setState={setInputNumberList}
-                title="숫자를 입력하세요"
-            />
+            <InputField value={inputNumberList} setState={setInputNumberList} />
             <ResultField value={inputNumberList} />
-            <ResultField />
             <Timer leng="en-US" />
         </Container>
     );
