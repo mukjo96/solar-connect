@@ -27,5 +27,6 @@ const StyledTextArea = styled.textarea`
         props.isValidate ? "solid 2px #1e90ff" : "solid 2px red"};
     border-radius: 5px;
     font-size: 16px;
+    font-family: inherit;
     resize: none;
 `;

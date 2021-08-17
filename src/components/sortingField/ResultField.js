@@ -1,16 +1,18 @@
 import React from "react";
 import styled from "styled-components";
+import { numberSort } from "utils/sortNumber";
 
 const ResultField = ({ value }) => {
-    const newValue = value ? value.join(",") : "";
+    const ascendingValue = numberSort(value).join(",");
+    const descendingValue = numberSort(value, true).join(",");
     return (
         <>
             <Container>
-                <ResultText>{newValue}</ResultText>
+                <ResultText>{ascendingValue}</ResultText>
             </Container>
 
             <Container>
-                <ResultText>{newValue}</ResultText>
+                <ResultText>{descendingValue}</ResultText>
             </Container>
         </>
     );

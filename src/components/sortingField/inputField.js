@@ -24,7 +24,7 @@ const InputField = ({ setState, title }) => {
             return true;
         }
         setIsValidate(false);
-        setError("정확히 입력해주세요.");
+        setError("공백없이 숫자와 콤마 입력해주세요.");
         return false;
     };
 
